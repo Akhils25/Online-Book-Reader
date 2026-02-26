@@ -22,6 +22,8 @@ runtimeLivedata = "1.10.4"
 ui = "1.6.0"
 uiToolingPreviewVersion = "1.6.0"
 kspVersion = "2.0.21-1.0.27"
+retrofit = "2.11.0"
+composeMaterial3Version = "1.5.6"
 
 [libraries]
 androidx-activity-compose-v193 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
@@ -51,6 +53,8 @@ ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+retrofit-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
+androidx-compose-material3 = { group = "androidx.wear.compose", name = "compose-material3", version.ref = "composeMaterial3Version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -41,6 +41,38 @@ class MainActivity : ComponentActivity() {
                         composable("HomeScreen") { HomeScreen(navHostController = navController) }
                     }
                 }
+
+                /*NavHost(navController = navController, startDestination = "listing") {
+
+                    // --- LISTING SCREEN ---
+                    composable("listing") {
+                        ListingScreen(
+                            viewModel = viewModel,
+                            onSelect = { work ->
+                                // Pass data via navigation arguments
+                                val author = work.authors[0].name
+                                val title = work.title
+                                navController.navigate("reader/$author/$title")
+                            }
+                        )
+                    }
+
+                    // --- READING SCREEN ---
+                    composable(
+                        route = "reader/{author}/{title}",
+                        arguments = listOf(
+                            navArgument("author") { type = NavType.StringType },
+                            navArgument("title") { type = NavType.StringType }
+                        )
+                    ) { backStackEntry ->
+                        val author = backStackEntry.arguments?.getString("author") ?: ""
+                        val title = backStackEntry.arguments?.getString("title") ?: ""
+
+                        // Create a dummy Work object to trigger the reader
+                        val work = Work(title = title, authors = listOf(Author(author)))
+                        ReadingScreen(work = work, viewModel = viewModel)
+                    }
+                }*/
             }
         }
     }
