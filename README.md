@@ -1,7 +1,7 @@
 OpenLeaf 📖
 OpenLeaf is a modern, lightweight Android book reader built with Jetpack Compose. It allows users to browse millions of titles via the Open Library API and read public domain classics with high-quality formatting provided by Standard Ebooks.
 
-🚀 Key Features
+Key Features
 Global Book Search: Powered by the Open Library API to find almost any book.
 
 Native Reading Experience: Fetches raw HTML from Standard Ebooks and parses it into a native, paginated reader.
@@ -23,7 +23,7 @@ Architecture: MVVM (Model-View-ViewModel)
 
 Image Loading: Coil
 
-📂 Branch Information
+Branch Information
 [!IMPORTANT]
 The develop branch contains the fully implemented version of the project, including the latest bug fixes for the Standard Ebooks parser, the full-screen reader UI, and the navigation logic.
 
@@ -33,7 +33,7 @@ The develop branch contains the fully implemented version of the project, includ
 <img width="150" height="333" alt="Screenshot_20260227_123310" src="https://github.com/user-attachments/assets/bed929b0-f870-4b9b-a02c-03f02e7c8faf" />
 <img width="150" height="333" alt="Screenshot_20260227_123339" src="https://github.com/user-attachments/assets/192bd95e-ccd0-4bfb-a2bc-704ef837b9a5" />
 
-⚙️ Installation
+Installation
 Clone the repository:
 
 Bash
