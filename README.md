@@ -40,6 +40,16 @@ Bash
 git clone https://github.com/Akhils25/Online-Book-Reader.git
 Switch to the develop branch:
 
+
+🚀 Future Enhancements
+Search Books (Enhanced): Implement advanced search filters (by genre, year, or ISBN) using the Open Library's specialized search parameters.
+
+Books Full List (Infinite Scroll): Replace basic search results with a paginated "Full List" view using the Paging 3 library to handle millions of books without lag.
+
+Offline Reading: Add a Room Database to cache book content locally, allowing users to read their favorite titles without an internet connection.
+
+Custom Themes: Introduce a settings menu to toggle between Light, Dark, and Sepia modes, and allow users to adjust font sizes for better accessibility.
+
 Bash
 git checkout develop
 Open the project in Android Studio Jellyfish or later.
