@@ -37,7 +37,7 @@ The develop branch contains the fully implemented version of the project, includ
 Clone the repository:
 
 Bash
-git clone https://github.com/your-username/OpenLeaf.git
+git clone https://github.com/Akhils25/Online-Book-Reader.git
 Switch to the develop branch:
 
 Bash
