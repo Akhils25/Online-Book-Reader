@@ -28,8 +28,8 @@ Image Loading: Coil
 The develop branch contains the fully implemented version of the project, including the latest bug fixes for the Standard Ebooks parser, the full-screen reader UI, and the navigation logic.
 
 📸 Screenshots
-<img width="1080" height="2400" alt="Screenshot_20260227_123339" src="https://github.com/user-attachments/assets/192bd95e-ccd0-4bfb-a2bc-704ef837b9a5" />
-<img width="1080" height="2400" alt="Screenshot_20260227_123310" src="https://github.com/user-attachments/assets/bed929b0-f870-4b9b-a02c-03f02e7c8faf" />
+<img width="150" height="333" alt="Screenshot_20260227_123339" src="https://github.com/user-attachments/assets/192bd95e-ccd0-4bfb-a2bc-704ef837b9a5" />
+<img width="150" height="333" alt="Screenshot_20260227_123310" src="https://github.com/user-attachments/assets/bed929b0-f870-4b9b-a02c-03f02e7c8faf" />
 
 ⚙️ Installation
 Clone the repository:
