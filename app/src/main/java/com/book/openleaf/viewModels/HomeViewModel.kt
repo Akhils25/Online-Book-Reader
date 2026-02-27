@@ -22,11 +22,13 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
 
     fun loadSubject(subject: String) {
         viewModelScope.launch {
+            _isLoading.value = true
             try {
                 val response = repository.getBooks(subject)
                 _bookList.value = response.works
             } catch (e: Exception) {
             }
+            _isLoading.value = false
         }
     }
 
