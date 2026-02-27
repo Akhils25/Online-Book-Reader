@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.book.openleaf.Pages.DetailScreen
 import com.book.openleaf.Pages.HomeScreen
 import com.book.openleaf.Pages.SplashScreen
 import com.book.openleaf.ui.theme.OpenLeafTheme
@@ -39,40 +40,18 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("SplashScreen") { SplashScreen(navHostController = navController) }
                         composable("HomeScreen") { HomeScreen(navHostController = navController) }
+                        composable("DetailScreen/{author}/{title}") { backStackEntry ->
+                            val author = backStackEntry.arguments?.getString("author") ?: ""
+                            val title = backStackEntry.arguments?.getString("title") ?: ""
+
+                            DetailScreen(
+                                navHostController = navController,
+                                authorName = author,
+                                title = title
+                            )
+                        }
                     }
                 }
-
-                /*NavHost(navController = navController, startDestination = "listing") {
-
-                    // --- LISTING SCREEN ---
-                    composable("listing") {
-                        ListingScreen(
-                            viewModel = viewModel,
-                            onSelect = { work ->
-                                // Pass data via navigation arguments
-                                val author = work.authors[0].name
-                                val title = work.title
-                                navController.navigate("reader/$author/$title")
-                            }
-                        )
-                    }
-
-                    // --- READING SCREEN ---
-                    composable(
-                        route = "reader/{author}/{title}",
-                        arguments = listOf(
-                            navArgument("author") { type = NavType.StringType },
-                            navArgument("title") { type = NavType.StringType }
-                        )
-                    ) { backStackEntry ->
-                        val author = backStackEntry.arguments?.getString("author") ?: ""
-                        val title = backStackEntry.arguments?.getString("title") ?: ""
-
-                        // Create a dummy Work object to trigger the reader
-                        val work = Work(title = title, authors = listOf(Author(author)))
-                        ReadingScreen(work = work, viewModel = viewModel)
-                    }
-                }*/
             }
         }
     }

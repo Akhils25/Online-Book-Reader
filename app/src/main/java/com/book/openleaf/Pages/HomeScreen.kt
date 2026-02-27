@@ -2,6 +2,7 @@ package com.book.openleaf.Pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -43,12 +45,13 @@ import com.book.openleaf.R
 import com.book.openleaf.StylishHeader
 import com.book.openleaf.models.SubjectResponse
 import com.book.openleaf.viewModels.HomeViewModel
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun HomeScreen(navHostController: NavHostController, viewModel: HomeViewModel = hiltViewModel()) {
     val loading by viewModel.isLoading.observeAsState(initial = false)
     val bookList by viewModel.bookList.observeAsState(initial = emptyList())
-    val chaptersList by viewModel.chapters.observeAsState(initial = emptyList())
     LaunchedEffect(Unit) {
         viewModel.loadSubject("novela_juvenil")
     }
@@ -129,7 +132,7 @@ fun HomeScreen(navHostController: NavHostController, viewModel: HomeViewModel = 
                         horizontalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
                         items(bookList) { book ->
-                            ListingCard(book)
+                            ListingCard(navHostController, book)
                         }
                     }
                 }
@@ -138,9 +141,18 @@ fun HomeScreen(navHostController: NavHostController, viewModel: HomeViewModel = 
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ListingCard(book: SubjectResponse.Work) {
+fun ListingCard(navHostController: NavHostController, book: SubjectResponse.Work) {
+    val author = book.authors.firstOrNull()?.name ?: "Unknown"
+    val encodedTitle = URLEncoder.encode(book.title, StandardCharsets.UTF_8.toString())
+    val encodedAuthor = URLEncoder.encode(author, StandardCharsets.UTF_8.toString())
     Card(
+        onClick = {
+            navHostController.navigate("DetailScreen/$encodedAuthor/$encodedTitle") {
+                popUpTo("HomeScreen") { inclusive = false }
+            }
+        },
         Modifier
             .width(148.dp)
             .height(217.dp),
@@ -151,7 +163,8 @@ fun ListingCard(book: SubjectResponse.Work) {
                 model = "https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg",
                 contentDescription = "",
                 modifier = Modifier
-                    .fillMaxWidth().height(160.dp),
+                    .fillMaxWidth()
+                    .height(160.dp),
                 contentScale = ContentScale.Crop
             )
             Column(modifier = Modifier.padding(8.dp)) {
@@ -175,33 +188,6 @@ fun ListingCard(book: SubjectResponse.Work) {
         }
     }
 }
-
-/* @OptIn(ExperimentalFoundationApi::class)
- @Composable
- fun ReadingScreen(work: Work, viewModel: BookViewModel) {
-     LaunchedEffect(work) { viewModel.loadBookText(work.authors[0].name, work.title) }
-
-     if (viewModel.loadingByPage) {
-         Box(Modifier.fillMaxSize(), Alignment.Center) { CircularProgressIndicator() }
-     } else {
-         val pagerState = rememberPagerState(pageCount = { viewModel.chapters.size })
-
-         HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { index ->
-             Column(Modifier.fillMaxSize().padding(20.dp).verticalScroll(rememberScrollState())) {
-                 AndroidView(
-                     factory = { context ->
-                         TextView(context).apply {
-                             textSize = 19f
-                             setLineSpacing(0f, 1.2f)
-                             setTextColor(android.graphics.Color.BLACK)
-                         }
-                     },
-                     update = { it.text = HtmlCompat.fromHtml(viewModel.chapters[index], 0) }
-                 )
-             }
-         }
-     }
- }*/
 
 @Composable
 @Preview(showBackground = true, showSystemUi = false)
