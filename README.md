@@ -29,6 +29,10 @@ Branch Information
 [!IMPORTANT]
 The develop branch contains the fully implemented version of the project, including the latest bug fixes for the Standard Ebooks parser, the full-screen reader UI, and the navigation logic.
 
+Bash git checkout develop Open the project in Android Studio Jellyfish or later.
+
+Build and run on an emulator or physical device (API 24+)
+
 📸 Screenshots
 
 
@@ -45,9 +49,3 @@ Books Full List (Infinite Scroll): Replace basic search results with a paginated
 Offline Reading: Add a Room Database to cache book content locally, allowing users to read their favorite titles without an internet connection.
 
 Custom Themes: Introduce a settings menu to toggle between Light, Dark, and Sepia modes, and allow users to adjust font sizes for better accessibility.
-
-Bash
-git checkout develop
-Open the project in Android Studio Jellyfish or later.
-
-Build and run on an emulator or physical device (API 24+)
