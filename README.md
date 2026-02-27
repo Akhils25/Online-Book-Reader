@@ -1,44 +1,45 @@
-OpenLeaf: A Modern Jetpack Compose E-Reader
-OpenLeaf is a high-performance Android e-reading application built using Jetpack Compose and Material 3. It bridges the gap between the Open Library API and Standard Ebooks, providing a seamless transition from book discovery to a beautiful, native reading experience.
+OpenLeaf 📖
+OpenLeaf is a modern, lightweight Android book reader built with Jetpack Compose. It allows users to browse millions of titles via the Open Library API and read public domain classics with high-quality formatting provided by Standard Ebooks.
 
-Features
-Discovery: Browse thousands of titles from the Open Library "Novela Juvenil" subject catalog.
+🚀 Key Features
+Global Book Search: Powered by the Open Library API to find almost any book.
 
-Native Reader: Unlike standard apps that use WebViews, OpenLeaf parses raw HTML into native text for a smooth, lag-free reading experience.
+Native Reading Experience: Fetches raw HTML from Standard Ebooks and parses it into a native, paginated reader.
 
-Page-Swipe Navigation: Implements HorizontalPager to simulate a traditional book feel with modern gesture-based navigation.
+Dynamic Progress Tracking: Real-time progress bar and chapter counting as you read.
 
-Clean Typography: Leverages Android's HtmlCompat to preserve the high-quality formatting provided by Standard Ebooks.
+Clean UI/UX: Built entirely with Jetpack Compose for a smooth, reactive interface.
 
-Public Domain Focused: Automatically targets high-quality, free editions of literary classics.
+🛠 Tech Stack
+Language: Kotlin
 
-Tech Stack
-UI: Jetpack Compose (100% Kotlin)
+UI: Jetpack Compose (Material 3)
 
-Concurrency: Kotlin Coroutines & Flow
+Networking: Retrofit & OkHttp
 
-DI: Hilt (Dagger)
+Dependency Injection: Hilt
 
-Networking: Retrofit with Scalars and Gson Converters
+Architecture: MVVM (Model-View-ViewModel)
 
-Image Loading: Coil (Compose-optimized)
+Image Loading: Coil
 
-Architecture: MVVM (Model-View-ViewModel) with a clean Repository pattern
+📂 Branch Information
+[!IMPORTANT]
+The develop branch contains the fully implemented version of the project, including the latest bug fixes for the Standard Ebooks parser, the full-screen reader UI, and the navigation logic.
 
-How it Works
-Metadata: Fetches book details and cover art from the Open Library API.
+📸 Screenshots
+<img width="1080" height="2400" alt="Screenshot_20260227_123339" src="https://github.com/user-attachments/assets/192bd95e-ccd0-4bfb-a2bc-704ef837b9a5" />
+<img width="1080" height="2400" alt="Screenshot_20260227_123310" src="https://github.com/user-attachments/assets/bed929b0-f870-4b9b-a02c-03f02e7c8faf" />
 
-String Processing: Cleans and formats Author/Title strings into URL-safe slugs.
+⚙️ Installation
+Clone the repository:
 
-Parsing: Downloads single-page HTML from Standard Ebooks and splits the content into swipeable chapters based on <section> markers.
+Bash
+git clone https://github.com/your-username/OpenLeaf.git
+Switch to the develop branch:
 
-Rendering: Displays content in a native TextView inside a HorizontalPager for optimal performance.
+Bash
+git checkout develop
+Open the project in Android Studio Jellyfish or later.
 
-Quick Setup for Developers
-Clone the repo: git clone [https://github.com/Akhils25/Online-Book-Reader.git]
-
-Open in Android Studio Hedgehog or newer.
-
-Ensure Hilt and Kapt plugins are enabled in your build.gradle.
-
-Run on an emulator or physical device with Internet access.
+Build and run on an emulator or physical device (API 24+)
